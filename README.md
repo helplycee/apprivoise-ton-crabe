@@ -1,6 +1,6 @@
-# Apprivoise ton crabe
+# Dégonfle ton stress
 
-Parcours en autonomie pour aider les collégiens à comprendre et apprivoiser leur stress, avec une BD, des vidéos, des podcasts et de petites activités.
+Parcours en autonomie pour aider les collégiens à comprendre leur stress et à s'en occuper, avec une BD, des vidéos, des podcasts et de petits jeux.
 
 `index.html` contient le parcours complet, en un seul fichier.
 

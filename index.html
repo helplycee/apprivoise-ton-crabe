@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Apprivoise ton crabe</title>
+<title>Dégonfle ton stress</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chango&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0}
@@ -17,11 +17,12 @@ img{max-width:100%}
 /* Layout : une grande plage en cases de BD. Chaque idée tient dans une image, le détail se déplie à part. */
 :root{
   color-scheme:light;
-  --sky:#BFE7FF; --sky-2:#E8F7FF; --sand:#FFD766; --sand-2:#FFF2C4; --ink:#14235E; --ink-2:#44507F;
-  --coral:#E8384F; --sea:#08797A; --mint:#BDEFD9; --lilac:#DCD6FF; --paper:#FFFFFF; --line:#14235E;
-  --cloud:#FFFFFF; --sun:#FFB400; --wave:#37BCC8; --on-coral:#FFFFFF; --on-sea:#FFFFFF;
-  --crab:#F2495C; --crab-dark:#B42238; --good:#0A6F52; --bad:#B42238; --good-bg:#D9F6EA; --bad-bg:#FFE3E6;
-  --display:"Bagel Fat One","Arial Rounded MT Bold","Trebuchet MS",sans-serif;
+  /* Layout : sous l'eau. Les étapes sont des bulles qui remontent, le titre est gonflé comme le poisson. */
+  --sky:#9FE6EE; --sky-2:#D6F8F7; --sand:#FFE08A; --sand-2:#F4FFFE; --ink:#07305A; --ink-2:#2B5277;
+  --coral:#D93A6A; --sea:#0A6C94; --mint:#BDF2D8; --lilac:#FFE9A8; --paper:#FFFFFF; --line:#0A4B7A;
+  --cloud:#FFFFFF; --sun:#FFFFFF; --wave:#26C2C9; --on-coral:#FFFFFF; --on-sea:#FFFFFF;
+  --crab:#FFD23F; --crab-dark:#B67A00; --good:#0A6F52; --bad:#B02556; --good-bg:#D5F7E7; --bad-bg:#FFE1EC;
+  --display:"Chango","Arial Rounded MT Bold","Trebuchet MS",sans-serif;
   --body:"Atkinson Hyperlegible","Trebuchet MS",Verdana,sans-serif;
 }
 *{box-sizing:border-box}
@@ -127,7 +128,7 @@ input[type=range]{width:100%;accent-color:var(--coral);height:32px}
 .ingredients b{display:block;color:var(--coral);font:400 1.5rem/1 var(--display)}
 .lung{display:flex;flex-direction:column;align-items:center;gap:13px}
 .bubble-zone{width:min(100%,250px);aspect-ratio:1;display:grid;place-items:center;background:var(--paper);border:2px solid var(--line);border-radius:50%;overflow:hidden}
-.bubble{grid-area:1/1;width:100%;height:100%;border-radius:50%;background:var(--wave);transform:scale(.38);transition:transform 5s ease-in-out}
+.bubble{grid-area:1/1;width:100%;height:100%;border-radius:50%;background:var(--wave);transform:scale(.55);transition:transform 5s ease-in-out}
 .bubble-txt{grid-area:1/1;z-index:1;font:400 1.45rem/1 var(--display);background:var(--paper);padding:8px 14px;border-radius:999px;border:2px solid var(--line);text-align:center}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center}
 .pill[aria-pressed=true]{background:var(--sand)}
@@ -165,6 +166,40 @@ footer ul{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;ga
 }
 @media (max-width:440px){.piles,.ingredients{grid-template-columns:minmax(0,1fr)}.traps{grid-template-columns:minmax(0,1fr)}.senses{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+html,body{background:#D6F8F7}
+.finish .pearl{stroke:#fff}
+h1{font-size:clamp(2.6rem,12vw,5rem);line-height:1.02}
+h2{font-size:clamp(1.5rem,5.2vw,2.15rem)}h3{font-size:1.02rem;line-height:1.15}
+.hero{background:radial-gradient(circle at 80% 30%,#D6F8F7 0,#9FE6EE 60%,#7FD9E6 100%);padding-block:34px 30px}
+.puff{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px 22px;align-items:center}
+.puff-txt{display:flex;flex-direction:column;gap:12px;min-width:0}
+.puff-ctl{grid-column:1/-1;background:rgba(255,255,255,.72);border:2px solid var(--line);border-radius:30px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.crab-box{height:auto;min-height:220px;align-items:center}
+.crab-box svg{transform:none!important;width:100%;max-width:330px}
+.path{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.path li{width:calc(33.33% - 11px)}
+.stop{aspect-ratio:1;border-radius:50%;border:3px solid var(--line);position:relative;background:rgba(255,255,255,.9);justify-content:center;align-items:center;text-align:center}
+.stop svg{position:absolute;inset:0;width:100%;height:52%;border-bottom:0}
+.stop-body{position:absolute;left:8%;right:8%;top:53%;align-items:center;padding:0;gap:3px}
+.state{align-self:center}
+.game,.help,.finish,.scene,.panel,.more,.res a,.q,.body-txt{border-radius:26px}
+.game{border-width:3px}
+.help{border-color:var(--coral)}
+.bubble-zone{background:#D6F8F7;position:relative}
+.bubble{background:none;border-radius:0;display:grid;place-items:center;transform:scale(.55);transform-origin:center}
+.bubble svg{width:100%;height:auto;overflow:visible}
+.bubble-txt{align-self:end;margin-bottom:10px;font-size:1.05rem}
+.big-num{font-size:1.25rem}
+.score{font-size:1rem}.body-txt b,.pile b{font-size:1rem}.bubble-txt,.guide{font-size:1.05rem;line-height:1.3}
+.ingredients b{font-size:1.25rem}
+.shell{width:30px;height:30px}
+@media (max-width:640px){
+ .puff{grid-template-columns:minmax(0,1fr)}.crab-box{min-height:170px;order:0}.crab-box svg{max-width:240px}
+ .path{gap:10px}.path li{width:calc(50% - 5px)}
+ h3{font-size:.86rem}.state{font-size:.72rem}
+}
+
 </style>
 </head>
 <body>
@@ -172,7 +207,7 @@ footer ul{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;ga
 <button class="helpbtn" id="helpbtn" type="button">Besoin de parler ?</button>
 <script>
 (function(){
-var KEY='apprivoise-ton-crabe-v1';
+var KEY='degonfle-ton-stress-v1';
 var S={before:5,after:null,done:{},game:{},seen:{},picks:{},mine:'',stick:{},k1:'',k2:'',k3:'',round:{}};
 try{var sv=JSON.parse(localStorage.getItem(KEY));if(sv)S=Object.assign(S,sv)}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
@@ -180,17 +215,17 @@ var app=document.getElementById('app');
 function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var YT='https://www.youtube.com/watch?v=',OK='https://podcast.ausha.co/ma-vie-d-ado/';
 var ST='stroke="var(--line)" stroke-width="3"';
-function crabMini(x,y,k,m){return '<g transform="translate('+x+' '+y+') scale('+k+')"><path class="crab-leg" d="M48 86 L18 100 M46 96 L20 118 M152 86 L182 100 M154 96 L180 118"/><path class="crab-claw" d="M34 66 C8 62 4 28 24 18 C20 34 30 36 34 26 C50 36 50 60 34 66 Z"/><path class="crab-claw" d="M166 66 C192 62 196 28 176 18 C180 34 170 36 166 26 C150 36 150 60 166 66 Z"/><path class="crab-leg" d="M38 66 L56 76 M162 66 L144 76"/><ellipse class="crab-body" cx="100" cy="86" rx="56" ry="36"/><path class="crab-leg" d="M84 54 L80 34 M116 54 L120 34"/><circle class="crab-eye" cx="80" cy="26" r="12"/><circle class="crab-eye" cx="120" cy="26" r="12"/><circle class="crab-pupil" cx="82" cy="27" r="5"/><circle class="crab-pupil" cx="118" cy="27" r="5"/><path class="crab-mouth" d="'+(m||'M86 92 q14 12 28 0')+'"/></g>'}
-function crabSVG(v){var m=v<=3?'M86 92 q14 12 28 0':v<=6?'M88 96 q12 0 24 0':'M86 100 q14 -12 28 0';return '<svg viewBox="0 0 200 130" role="img" aria-label="Corti le crabe, taille '+v+' sur 10" style="transform:scale('+(0.55+v*0.055).toFixed(3)+')">'+crabMini(0,0,1,m)+'</svg>'}
-function crabLine(v){if(v<=2)return 'Corti fait la sieste. Tout va bien pour lui.';if(v<=4)return 'Corti se promène. Il surveille un peu.';if(v<=6)return 'Corti a sorti ses pinces. Ça arrive à tout le monde.';if(v<=8)return 'Corti court partout. On va l’aider à se calmer.';return 'Corti prend toute la place. Ce site peut aider, et parler à un adulte aussi.'}
-function shell(on){return '<svg class="shell'+(on?' on':'')+'" viewBox="0 0 40 40" aria-hidden="true"><path class="fill" d="M20 34 C8 30 3 20 7 11 C13 5 27 5 33 11 C37 20 32 30 20 34Z"/><path d="M20 34 C8 30 3 20 7 11 C13 5 27 5 33 11 C37 20 32 30 20 34Z M20 34 L20 8 M20 34 L12 10 M20 34 L28 10"/></svg>'}
-function cloud(x,y,k){return '<g class="a-float" transform="translate('+x+' '+y+') scale('+(k||1)+')"><path d="M10 40 a18 18 0 0 1 8-34 a24 24 0 0 1 44-2 a20 20 0 0 1 26 36 Z" fill="var(--cloud)" '+ST+'/></g>'}
-function sun(x,y,r){var o='';for(var i=0;i<8;i++){var a=i*Math.PI/4;o+='<line x1="'+(x+Math.cos(a)*(r+6))+'" y1="'+(y+Math.sin(a)*(r+6))+'" x2="'+(x+Math.cos(a)*(r+15))+'" y2="'+(y+Math.sin(a)*(r+15))+'" stroke="var(--sun)" stroke-width="5" stroke-linecap="round"/>'}return o+'<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="var(--sun)" '+ST+'/>'}
-function waves(y,h){return '<path class="a-wave" d="M0 '+y+' q50 -20 100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 t100 0 V'+h+' H0Z" fill="var(--wave)"/>'}
-function txt(x,y,t,s,c){return '<text x="'+x+'" y="'+y+'" text-anchor="middle" font-family="Bagel Fat One,Arial Rounded MT Bold,sans-serif" font-size="'+(s||24)+'" fill="'+(c||'var(--ink)')+'">'+t+'</text>'}
+function crabMini(x,y,k,sh,sad){var f=Math.min(1,(sh||0)/32),r=26+26*f,cx=108,cy=66,sp='';for(var i=0;i<18;i++){var a=i*Math.PI/9;if(Math.abs(Math.cos(a)+1)<.12)continue;var L=3+f*9;sp+='<line x1="'+(cx+Math.cos(a)*r).toFixed(1)+'" y1="'+(cy+Math.sin(a)*r).toFixed(1)+'" x2="'+(cx+Math.cos(a)*(r+L)).toFixed(1)+'" y2="'+(cy+Math.sin(a)*(r+L)).toFixed(1)+'" stroke="#B67A00" stroke-width="3.5" stroke-linecap="round"/>'}var e=r*.28;return '<g transform="translate('+x+' '+y+') scale('+k+')"><path d="M'+(cx-r+4)+' '+cy+' L'+(cx-r-26)+' '+(cy-18)+' Q'+(cx-r-18)+' '+cy+' '+(cx-r-26)+' '+(cy+18)+'Z" fill="#FF9E3D" stroke="#0A4B7A" stroke-width="3" stroke-linejoin="round"/>'+sp+'<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="#FFD23F" stroke="#0A4B7A" stroke-width="3.5"/><path d="M'+(cx-r*.75)+' '+(cy+r*.45)+' Q'+cx+' '+(cy+r*1.15)+' '+(cx+r*.75)+' '+(cy+r*.45)+' Q'+cx+' '+(cy+r*.62)+' '+(cx-r*.75)+' '+(cy+r*.45)+'Z" fill="#FFF7D6"/><circle cx="'+(cx+r*.15)+'" cy="'+(cy-r*.28)+'" r="'+Math.max(8,e)+'" fill="#fff" stroke="#0A4B7A" stroke-width="3"/><circle cx="'+(cx+r*.62)+'" cy="'+(cy-r*.28)+'" r="'+Math.max(8,e)+'" fill="#fff" stroke="#0A4B7A" stroke-width="3"/><circle cx="'+(cx+r*.2)+'" cy="'+(cy-r*.26)+'" r="'+Math.max(4,e*.48)+'" fill="#07305A"/><circle cx="'+(cx+r*.67)+'" cy="'+(cy-r*.26)+'" r="'+Math.max(4,e*.48)+'" fill="#07305A"/><path d="'+(sad?'M'+(cx+r*.25)+' '+(cy+r*.3)+' q'+(r*.2)+' '+(-r*.16)+' '+(r*.4)+' 0':'M'+(cx+r*.25)+' '+(cy+r*.18)+' q'+(r*.2)+' '+(r*.2)+' '+(r*.4)+' 0')+'" fill="none" stroke="#07305A" stroke-width="3.5" stroke-linecap="round"/><path d="M'+(cx-r*.35)+' '+(cy+r*.05)+' q'+(-r*.3)+' '+(r*.1)+' '+(-r*.1)+' '+(r*.42)+' q'+(r*.25)+' '+(-r*.1)+' '+(r*.1)+' '+(-r*.42)+'Z" fill="#FF9E3D" stroke="#0A4B7A" stroke-width="2.5"/></g>'}
+function crabSVG(v){return '<svg viewBox="0 0 200 130" role="img" aria-label="Corti le poisson-globe, gonflé à '+v+' sur 10">'+crabMini(0,0,1,v*3.2,v>=7)+'</svg>'}
+function crabLine(v){if(v<=2)return 'Corti est tout plat. Il nage tranquille.';if(v<=4)return 'Corti surveille un peu autour de lui.';if(v<=6)return 'Corti commence à gonfler. Ça arrive à tout le monde.';if(v<=8)return 'Corti est bien gonflé. On va l’aider à se dégonfler.';return 'Corti est gonflé à bloc. Ce site peut aider, et parler à un adulte aussi.'}
+function shell(on){return '<svg class="shell'+(on?' on':'')+'" viewBox="0 0 40 40" aria-hidden="true"><circle class="pearl" cx="20" cy="20" r="15" fill="'+(on?'#FFFFFF':'none')+'" stroke="#0A4B7A" stroke-width="3"/>'+(on?'<circle cx="15" cy="15" r="4" fill="#9FE6EE"/>':'')+'</svg>'}
+function cloud(x,y,k){k=k||1;return '<g class="a-float" transform="translate('+x+' '+y+') scale('+k+')"><circle cx="14" cy="30" r="12" fill="#fff" fill-opacity=".75" stroke="#0A4B7A" stroke-width="2"/><circle cx="42" cy="14" r="8" fill="#fff" fill-opacity=".75" stroke="#0A4B7A" stroke-width="2"/><circle cx="62" cy="34" r="5" fill="#fff" fill-opacity=".75" stroke="#0A4B7A" stroke-width="2"/></g>'}
+function sun(x,y,r){return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="#fff" fill-opacity=".7" stroke="#0A4B7A" stroke-width="2.5"/><circle cx="'+(x-r*.35)+'" cy="'+(y-r*.35)+'" r="'+(r*.2)+'" fill="#fff"/>'}
+function waves(y,h){var o='';for(var i=0;i<9;i++){var X=20+i*88;o+='<path d="M'+X+' '+h+' q-10 -14 0 -26 q10 -12 0 -24" fill="none" stroke="#1FA67E" stroke-width="6" stroke-linecap="round"/>'}return o}
+function txt(x,y,t,s,c){return '<text x="'+x+'" y="'+y+'" text-anchor="middle" font-family="Chango,Arial Rounded MT Bold,sans-serif" font-size="'+(s||24)+'" fill="'+(c||'var(--ink)')+'">'+t+'</text>'}
 function bubbleT(x,y,w,t,s){return '<ellipse cx="'+x+'" cy="'+y+'" rx="'+w+'" ry="24" fill="var(--cloud)" '+ST+'/>'+txt(x,y+6,t,s||17)}
-function sc(inner,label,h){h=h||180;return '<svg class="scene" viewBox="0 0 760 '+h+'" role="img" aria-label="'+label+'"><rect width="760" height="'+h+'" fill="var(--sky)"/><path d="M0 '+(h-48)+' C150 '+(h-72)+' 300 '+(h-28)+' 460 '+(h-50)+' S680 '+(h-68)+' 760 '+(h-48)+' V'+h+' H0Z" fill="var(--sand)"/>'+inner+'</svg>'}
-function mini(inner,label){return '<svg viewBox="0 0 300 150" role="img" aria-label="'+label+'"><rect width="300" height="150" fill="var(--sky)"/><path d="M0 118 C80 100 200 134 300 112 V150 H0Z" fill="var(--sand)"/>'+inner+'</svg>'}
+function sc(inner,label,h){h=h||180;return '<svg class="scene" viewBox="0 0 760 '+h+'" role="img" aria-label="'+label+'"><rect width="760" height="'+h+'" fill="#7FD9E6"/><path d="M0 '+(h-28)+' C150 '+(h-46)+' 300 '+(h-14)+' 460 '+(h-30)+' S680 '+(h-44)+' 760 '+(h-28)+' V'+h+' H0Z" fill="#FFE08A"/>'+inner+'</svg>'}
+function mini(inner,label){return '<svg viewBox="0 0 300 150" role="img" aria-label="'+label+'"><rect width="300" height="150" fill="#7FD9E6"/><path d="M0 132 C80 120 200 144 300 128 V150 H0Z" fill="#FFE08A"/>'+inner+'</svg>'}
 var STEPS=[
  {id:'etape-1',t:'Mon corps en alerte',sub:'Ce qui se passe quand je stresse.',min:'8 min',art:function(){return sun(250,34,16)+crabMini(30,28,.6)+'<path d="M190 96 C190 58 200 44 222 44 C244 44 254 58 254 96 L265 106 H179Z" fill="var(--sun)" '+ST+'/><circle cx="222" cy="114" r="8" fill="var(--coral)" '+ST+'/>'}},
  {id:'etape-2',t:'Ce qui me stresse',sub:'Trouver ce qui fait monter le stress.',min:'10 min',art:function(){return crabMini(14,30,.58)+'<path d="M170 58 L186 136 H254 L270 58Z" fill="var(--sun)" '+ST+'/>'+txt(190,40,'?',30,'var(--coral)')+txt(225,30,'!',30,'var(--sea)')+txt(258,44,'?',28,'var(--coral)')}},
@@ -199,13 +234,12 @@ var STEPS=[
  {id:'etape-5',t:'Ma boîte à calme',sub:'Je garde ce qui marche pour moi.',min:'8 min',art:function(){return crabMini(8,34,.56)+'<path d="M160 66 H280 L268 138 H172Z" fill="var(--coral)" '+ST+'/><circle cx="195" cy="46" r="16" fill="var(--wave)" '+ST+'/><rect x="224" y="24" width="30" height="42" rx="5" fill="var(--paper)" '+ST+'/>'}}
 ];
 function doneCount(){return STEPS.filter(function(s){return S.done[s.id]}).length}
-function shells(){return '<div class="shells" aria-label="'+doneCount()+' coquillages sur 5">'+STEPS.map(function(s){return shell(S.done[s.id])}).join('')+'</div>'}
-function heroScene(){return '<svg class="hero-scene" viewBox="0 0 300 250" role="img" aria-label="Une plage avec un château de sable, un parasol et un crabe">'+sun(236,48,27)+cloud(18,28,.9)+'<path d="M80 230 L108 74" stroke="var(--line)" stroke-width="5" stroke-linecap="round"/><path d="M26 98 C40 42 150 28 192 76 C168 66 150 80 135 88 C118 78 96 78 80 92 C64 86 44 88 26 98Z" fill="var(--coral)" '+ST+'/><path d="M82 92 C88 62 98 46 110 42 C118 54 128 72 135 88 C118 78 96 78 82 92Z" fill="var(--cloud)" '+ST+'/><path d="M150 232 V170 h16 v14 h14 v-14 h16 v14 h14 v-14 h16 v62Z" fill="#FFD766" '+ST+'/><rect x="178" y="202" width="20" height="30" rx="10" fill="#14235E"/><path d="M188 170 V142 l22 8 -22 8" fill="var(--coral)" '+ST+'/>'+crabMini(58,178,.42)+'</svg>'}
+function shells(){return '<div class="shells" aria-label="'+doneCount()+' perles sur 5">'+STEPS.map(function(s){return shell(S.done[s.id])}).join('')+'</div>'}
+function heroScene(){return ''}
 function home(){
  var n=doneCount(),nx=STEPS.filter(function(s){return !S.done[s.id]})[0];
- app.innerHTML='<section class="hero"><div class="wrap hero-grid"><div class="hero-txt"><p class="tag">Parcours pour le collège</p><h1 style="font-size:clamp(2.8rem,11vw,4.6rem)">Apprivoise<br>ton crabe</h1><p class="lede">Ici, tu peux te tromper et recommencer. Il n’y a pas de note. Tu vas comprendre ton stress et trouver ce qui te calme.</p></div>'+heroScene()+'</div><svg class="beach" viewBox="0 0 800 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C120 4 240 8 360 28 S620 56 800 16 V56 H0Z"/></svg></section>'+
- '<section class="check"><div class="wrap check-grid"><div class="stack"><h2>Quelle taille fait ton crabe aujourd’hui ?</h2><p>Voici Corti. C’est ton stress, en version crabe. Il n’est pas méchant. Il pince juste quand il a peur.</p><label for="s-before" class="big-num" id="v-before">'+S.before+' / 10</label><input type="range" id="s-before" min="0" max="10" value="'+S.before+'"><div class="scale"><span>Tout petit</span><span>Géant</span></div><p id="line-before" aria-live="polite">'+crabLine(S.before)+'</p><p id="alert-before" class="alertbox" '+(S.before>=9?'':'hidden')+'>C’est lourd en ce moment ? Tu n’as pas à gérer ça tout seul ou toute seule. <button type="button" class="linkbtn" data-help>Voir à qui parler</button></p></div><div class="crab-box" id="box-before">'+crabSVG(S.before)+'</div></div></section>'+
- '<div class="stack-l" style="padding-top:28px"><section class="stack"><div class="row" style="justify-content:space-between"><h2>Tes 5 étapes</h2>'+shells()+'</div><p>Fais une étape quand tu veux. Chaque étape finie te donne un coquillage.</p><ol class="path">'+STEPS.map(function(s,i){return '<li><button type="button" class="stop'+(S.done[s.id]?' done':'')+'" data-go="'+s.id+'">'+mini(s.art(),'')+'<span class="stop-body"><h3>'+(i+1)+'. '+s.t+'</h3><small>'+s.sub+'</small><span class="state">'+(S.done[s.id]?'Fait':s.min)+'</span></span></button></li>'}).join('')+'</ol>'+(nx?'<div><button type="button" class="btn" data-go="'+nx.id+'">'+(n?'Continuer':'Commencer')+' : '+nx.t+'</button></div>':'<div><button type="button" class="btn sea" data-go="etape-5">Revoir ma boîte à calme</button></div>')+'</section>'+helpBlock()+footer()+'</div>';
+ app.innerHTML='<section class="hero"><div class="wrap puff"><div class="puff-txt"><p class="tag">Parcours pour le collège</p><h1>Dégonfle<br>ton stress</h1><p class="lede">Ici, tu peux te tromper et recommencer. Il n’y a pas de note. Tu vas comprendre ton stress et trouver ce qui te calme.</p></div><div class="crab-box" id="box-before">'+crabSVG(S.before)+'</div><div class="puff-ctl"><h2>Il est gonflé comment, ton poisson ?</h2><p>Voici Corti, ton stress en version poisson-globe. Il n’est pas méchant. Quand il a peur, il se gonfle pour se protéger.</p><label for="s-before" class="big-num" id="v-before">'+S.before+' / 10</label><input type="range" id="s-before" min="0" max="10" value="'+S.before+'"><div class="scale"><span>Tout plat</span><span>Gonflé à bloc</span></div><p id="line-before" aria-live="polite">'+crabLine(S.before)+'</p><p id="alert-before" class="alertbox" '+(S.before>=9?'':'hidden')+'>C’est lourd en ce moment ? Tu n’as pas à gérer ça tout seul ou toute seule. <button type="button" class="linkbtn" data-help>Voir à qui parler</button></p></div></div></section>'+
+ '<div class="stack-l" style="padding-top:30px"><section class="stack"><div class="row" style="justify-content:space-between"><h2>Tes 5 bulles</h2>'+shells()+'</div><p>Ouvre une bulle quand tu veux. Chaque étape finie te donne une perle.</p><ol class="path">'+STEPS.map(function(s,i){return '<li><button type="button" class="stop'+(S.done[s.id]?' done':'')+'" data-go="'+s.id+'">'+mini(s.art(),'')+'<span class="stop-body"><h3>'+(i+1)+'. '+s.t+'</h3><span class="state">'+(S.done[s.id]?'Fait':s.min)+'</span></span></button></li>'}).join('')+'</ol>'+(nx?'<div><button type="button" class="btn" data-go="'+nx.id+'">'+(n?'Continuer':'Commencer')+' : '+nx.t+'</button></div>':'<div><button type="button" class="btn sea" data-go="etape-5">Revoir ma boîte à calme</button></div>')+'</section>'+helpBlock()+footer()+'</div>';
  var r=document.getElementById('s-before');r.addEventListener('input',function(){S.before=+r.value;save();document.getElementById('v-before').textContent=S.before+' / 10';document.getElementById('line-before').textContent=crabLine(S.before);document.getElementById('box-before').innerHTML=crabSVG(S.before);document.getElementById('alert-before').hidden=S.before<9});
 }
 function helpBlock(){return '<section class="help" id="aide"><h2>Si c’est trop lourd</h2><p>Ce site aide pour le stress de tous les jours. Il ne remplace personne. Parle à un adulte si le stress reste longtemps, si tu ne dors plus, si tu ne manges plus, si tu as peur d’aller au collège ou si tu as des idées noires.</p><ul>'+
@@ -219,7 +253,7 @@ function footer(){return '<footer><details><summary><b>D’où viennent les cont
 function res(k,h,t,d){var ic=/^Vid/.test(k)?'<path d="M3 1 L14 8 L3 15Z"/>':/^Podcast/.test(k)?'<path d="M8 1 a3 3 0 0 1 3 3 v4 a3 3 0 0 1-6 0 V4 a3 3 0 0 1 3-3Z M3 8 a5 5 0 0 0 10 0 h-1.5 a3.5 3.5 0 0 1-7 0Z M7 13 h2 v2 H7Z"/>':'<path d="M1 2 H7 V14 H1Z M9 2 H15 V14 H9Z"/>';return '<a href="'+h+'" target="_blank" rel="noopener"><em><svg viewBox="0 0 16 16" aria-hidden="true">'+ic+'</svg>'+k+'</em><b>'+t+'</b><span>'+d+'</span></a>'}
 function more(t,b){return '<details class="more"><summary>'+t+'</summary><div>'+b+'</div></details>'}
 function head(i){var s=STEPS[i];return '<div class="top"><button type="button" class="linkbtn" data-go="">Retour aux étapes</button>'+shells()+'</div><header class="step-head"><p class="tag">Étape '+(i+1)+' sur 5 · '+s.min+'</p><h1 style="font-size:clamp(2.3rem,9vw,4rem)">'+s.t+'</h1></header>'+SC[i]()+'<div style="height:22px"></div>'}
-function finish(i){var s=STEPS[i],n=STEPS[i+1];return '<section class="finish"><div class="row" style="justify-content:flex-start">'+shell(S.done[s.id])+'<h2>'+(S.done[s.id]?'Coquillage gagné':'Ton coquillage t’attend')+'</h2></div><p>'+(n?'La suite : '+n.t+'. Tu peux aussi faire une pause.':'Bravo, le parcours est fini. Tu peux revenir quand tu veux.')+'</p><button type="button" class="btn" data-finish="'+i+'">Prendre mon coquillage</button></section>'}
+function finish(i){var s=STEPS[i],n=STEPS[i+1];return '<section class="finish"><div class="row" style="justify-content:flex-start">'+shell(S.done[s.id])+'<h2>'+(S.done[s.id]?'Perle gagnée':'Ta perle t’attend')+'</h2></div><p>'+(n?'La suite : '+n.t+'. Tu peux aussi faire une pause.':'Bravo, le parcours est fini. Tu peux revenir quand tu veux.')+'</p><button type="button" class="btn" data-finish="'+i+'">Prendre ma perle</button></section>'}
 var SC=[
  function(){return sc(cloud(40,20)+sun(690,42,22)+crabMini(205,44,.92)+'<path d="M525 106 C525 58 540 38 570 38 C600 38 615 58 615 106 L632 122 H508Z" fill="var(--sun)" '+ST+'/><circle cx="570" cy="132" r="10" fill="var(--coral)" '+ST+'/><path d="M480 52 q-14 22 0 44 M652 52 q14 22 0 44" fill="none" stroke="var(--coral)" stroke-width="5" stroke-linecap="round"/>','Corti devant une cloche d’alarme')},
  function(){return sc(sun(60,40,20)+cloud(640,16,.8)+crabMini(120,46,.92)+'<path d="M384 72 L410 166 H522 L548 72Z" fill="var(--sun)" '+ST+'/>'+txt(415,42,'?',36,'var(--coral)')+txt(466,32,'!',36,'var(--sea)')+txt(515,44,'?',36,'var(--coral)'),'Corti et un seau rempli de questions')},
@@ -228,7 +262,7 @@ var SC=[
  function(){return sc(sun(690,42,22)+cloud(30,16,.8)+crabMini(130,46,.92)+'<circle cx="400" cy="48" r="20" fill="var(--wave)" '+ST+'/><rect x="438" y="20" width="42" height="56" rx="6" fill="var(--paper)" '+ST+'/><path d="M360 76 H572 L552 166 H380Z" fill="var(--coral)" '+ST+'/><path d="M430 118 q36 24 72 0" fill="none" stroke="var(--paper)" stroke-width="5" stroke-linecap="round"/>','La boîte à calme de Corti')}
 ];
 function quiz(id,items,long){return items.map(function(q,i){var st=(S.game[id]||{})[i];return '<div class="q"><p><b>'+q.q+'</b></p><div class="choices">'+q.c.map(function(c,j){var cl='';if(st!=null){if(j===q.a)cl=' ok';else if(j===st)cl=' ko'}return '<button type="button" class="choice'+(long?' long':'')+cl+'" data-quiz="'+id+'" data-i="'+i+'" data-j="'+j+'"'+(st!=null?' disabled':'')+'>'+c+'</button>'}).join('')+'</div><p class="fb" aria-live="polite">'+(st!=null?(st===q.a?'<b>Bien vu !</b> ':'<b>Pas tout à fait.</b> ')+q.e:'')+'</p></div>'}).join('')+'<p class="score" id="score-'+id+'">'+score(id,items)+'</p><div><button type="button" class="linkbtn" data-reset="'+id+'">'+(BANK[id]?'Rejouer avec d’autres questions':'Rejouer')+'</button></div>'}
-function score(id,items){var g=S.game[id]||{},a=Object.keys(g).length,o=items.filter(function(q,i){return g[i]===q.a}).length;if(!a)return 'Clique sur tes réponses. Il n’y a pas de note.';if(a<items.length)return 'Encore '+(items.length-a)+' à faire.';return o+' sur '+items.length+'. Corti lève les pinces !'}
+function score(id,items){var g=S.game[id]||{},a=Object.keys(g).length,o=items.filter(function(q,i){return g[i]===q.a}).length;if(!a)return 'Clique sur tes réponses. Il n’y a pas de note.';if(a<items.length)return 'Encore '+(items.length-a)+' à faire.';return o+' sur '+items.length+'. Corti fait des bulles de joie !'}
 var Q1=[
  {q:'Si mon cœur bat vite avant un contrôle, c’est que je suis nul ou nulle.',c:['Vrai','Faux'],a:1,e:'Ton corps se prépare parce que le contrôle compte pour toi. Ça ne dit rien sur ton niveau.'},
  {q:'Le stress peut parfois être utile.',c:['Vrai','Faux'],a:0,e:'Un peu de stress aide à réagir vite. C’est comme une alarme.'},
@@ -265,11 +299,11 @@ var CARDS=[
 function icon(c){return '<svg viewBox="0 0 64 64" aria-hidden="true">'+c.i+'</svg>'}
 function tips(){var o=CARDS.filter(function(c){return S.picks[c.k]});if(!o.length)return '<p class="note">Clique sur une ou plusieurs images pour voir une idée.</p>';return '<ul class="tips">'+o.map(function(c){return '<li'+(c.warn?' class="warn"':'')+'>'+c.tip+'</li>'}).join('')+'</ul>'}
 function piles(){var g=S.game.q2||{};function ch(a){return Q2.filter(function(q,i){return g[i]!=null&&q.a===a}).map(function(q){return '<span class="chip">'+q.s+'</span>'}).join('')}return '<div class="pile me"><b>Ça dépend de moi</b><span>J’agis.</span><div class="chips">'+ch(0)+'</div></div><div class="pile no"><b>Ça ne dépend pas de moi</b><span>J’arrête de tourner en rond.</span><div class="chips">'+ch(1)+'</div></div>'}
-var STK=['Respirer avec la bulle','Serrer et relâcher','Le jeu des 5 sens','Parler à quelqu’un','Bouger ou marcher','Écouter de la musique','Dessiner ou écrire','Dormir à heure fixe','Lâcher l’écran le soir','Préparer mon sac la veille'];
+var STK=['Respirer avec Corti','Serrer et relâcher','Le jeu des 5 sens','Parler à quelqu’un','Bouger ou marcher','Écouter de la musique','Dessiner ou écrire','Dormir à heure fixe','Lâcher l’écran le soir','Préparer mon sac la veille'];
 function comic(){var p=[
  [crabMini(90,38,.6)+txt(60,48,'!',38,'var(--coral)'),'1. Le prof annonce un contrôle surprise. Mon cerveau sonne l’alarme.'],
  ['<path d="M150 106 C100 72 100 40 128 36 C140 34 148 44 150 52 C152 44 160 34 172 36 C200 40 200 72 150 106Z" fill="var(--coral)" '+ST+'/>'+txt(240,70,'Boum !',22),'2. Mon cœur bat plus vite. Je respire plus vite.'],
- [crabMini(45,16,.95,'M86 100 q14 -12 28 0'),'3. Corti grossit. Mes mains transpirent et mon ventre se serre.'],
+ [crabMini(45,16,.95,28,true),'3. Corti gonfle. Mes mains transpirent et mon ventre se serre.'],
  [crabMini(100,62,.42)+'<circle cx="60" cy="52" r="24" fill="var(--wave)" '+ST+'/>'+sun(246,38,17),'4. Je respire lentement. Mon corps comprend qu’il peut se calmer.']];
  return '<div class="comic">'+p.map(function(x){return '<div class="panel">'+mini(x[0],'')+'<p>'+x[1]+'</p></div>'}).join('')+'</div>'}
 function figure(){return '<svg viewBox="0 0 200 330" aria-hidden="true"><circle cx="100" cy="42" r="30" fill="#FFD766" '+ST+'/><path d="M62 82 Q100 66 138 82 L146 190 H54Z" fill="#BFE7FF" '+ST+'/><path d="M58 88 L28 180 M142 88 L170 170" stroke="#14235E" stroke-width="14" stroke-linecap="round"/><path d="M58 88 L28 180 M142 88 L170 170" stroke="#FFD766" stroke-width="8" stroke-linecap="round"/><path d="M78 190 L72 310 M122 190 L128 310" stroke="#14235E" stroke-width="20" stroke-linecap="round"/><path d="M78 190 L72 310 M122 190 L128 310" stroke="#BFE7FF" stroke-width="14" stroke-linecap="round"/></svg>'}
@@ -299,7 +333,7 @@ var VIEWS={
  res('Podcast · 9 min',OK+'ma-pire-honte-au-college','Ma pire honte au collège','Des collégiens racontent un moment gênant.')+
  '</div></section>'+finish(1)+'</div>'},
  'etape-3':function(){return head(2)+'<div class="stack-l"><section class="prose"><p>Quand tu stresses, ta tête va vite. Ton corps peut l’aider à ralentir. Essaie maintenant, même si tu es calme. Comme au sport, ça marche mieux avec de l’entraînement.</p></section>'+
- '<section class="game"><h2>1. La bulle</h2><p>Inspire quand la bulle grossit. Souffle quand elle rétrécit. Si la tête te tourne, arrête et respire normalement.</p><div class="lung"><div class="bubble-zone"><div class="bubble" id="bubble"></div><div class="bubble-txt" id="btxt" aria-live="polite">Prêt ?</div></div><div class="row"><button type="button" class="choice pill" data-dur="1" aria-pressed="true">1 min</button><button type="button" class="choice pill" data-dur="2" aria-pressed="false">2 min</button><button type="button" class="choice pill" data-dur="3" aria-pressed="false">3 min</button></div><button type="button" class="btn sea" id="bstart">Lancer la bulle</button></div></section>'+
+ '<section class="game"><h2>1. Gonfle, dégonfle</h2><p>Inspire quand Corti gonfle. Souffle quand il se dégonfle. Si la tête te tourne, arrête et respire normalement.</p><div class="lung"><div class="bubble-zone"><div class="bubble" id="bubble"><svg viewBox="0 0 200 130" aria-hidden="true">'+crabMini(0,0,1,20)+'</svg></div><div class="bubble-txt" id="btxt" aria-live="polite">Prêt ?</div></div><div class="row"><button type="button" class="choice pill" data-dur="1" aria-pressed="true">1 min</button><button type="button" class="choice pill" data-dur="2" aria-pressed="false">2 min</button><button type="button" class="choice pill" data-dur="3" aria-pressed="false">3 min</button></div><button type="button" class="btn sea" id="bstart">Lancer Corti</button></div></section>'+
  '<section class="game"><h2>2. Serre, relâche</h2><p>Serre fort une partie du corps, puis lâche tout. Ne te fais pas mal.</p><div class="guide" id="guide" aria-live="polite">Prêt ?</div><div><button type="button" class="btn sea" id="gstart">Commencer</button></div></section>'+
  '<section class="game"><h2>3. Le jeu des 5 sens</h2><p>Idéal en classe : personne ne le voit. Clique sur chaque case quand c’est fait.</p><div class="senses">'+[['5','choses que je vois'],['4','choses que je touche'],['3','bruits que j’entends'],['2','odeurs que je sens'],['1','grande inspiration']].map(function(s){return '<button type="button" class="sense" data-sense><b>'+s[0]+'</b>'+s[1]+'</button>'}).join('')+'</div></section>'+
  '<section class="stack"><p class="kind">Pour mieux comprendre</p><div class="mores">'+
@@ -330,14 +364,14 @@ var VIEWS={
  res('Podcast · 6 min',OK+'prendre-soin-de-moi-facile','Prendre soin de moi ? Facile !','Dormir, bouger, voir les autres : comment recharger ses batteries.')+
  res('Vidéo · 5 min',YT+'ucC8HuOcDmE','Surfe ton stress, épisode 4','La fin de la série.')+
  res('Lecture','https://www.solidarites.gouv.fr/agressions-cyberharcelement-violences-si-tu-besoin-daide-des-numeros-existent','Si tu as besoin d’aide','Les numéros à connaître, expliqués aux jeunes.')+
- '</div></section><section class="game"><h2>Et ton crabe, maintenant ?</h2><div class="crab-box" id="box-after">'+crabSVG(v)+'</div><label for="s-after" class="big-num" id="v-after">'+v+' / 10</label><input type="range" id="s-after" min="0" max="10" value="'+v+'"><div class="scale"><span>Tout petit</span><span>Géant</span></div><p id="compare" aria-live="polite">'+compare()+'</p></section>'+finish(4)+'</div>'}
+ '</div></section><section class="game"><h2>Et Corti, maintenant ?</h2><div class="crab-box" id="box-after">'+crabSVG(v)+'</div><label for="s-after" class="big-num" id="v-after">'+v+' / 10</label><input type="range" id="s-after" min="0" max="10" value="'+v+'"><div class="scale"><span>Tout plat</span><span>Gonflé à bloc</span></div><p id="compare" aria-live="polite">'+compare()+'</p></section>'+finish(4)+'</div>'}
 };
-function compare(){if(S.after==null)return 'Déplace le curseur.';var d=S.before-S.after;if(d>0)return 'Corti a rétréci de '+d+'. Qu’est-ce qui a le mieux marché ?';if(d===0)return 'Même taille. C’est normal : ces gestes demandent de l’entraînement. Reviens demain.';return 'Corti a grossi. Ça arrive, et ce n’est pas un échec. Si ça dure, parles-en à un adulte.'}
+function compare(){if(S.after==null)return 'Déplace le curseur.';var d=S.before-S.after;if(d>0)return 'Corti s’est dégonflé de '+d+'. Qu’est-ce qui a le mieux marché ?';if(d===0)return 'Même position. C’est normal : ces gestes demandent de l’entraînement. Reviens demain.';return 'Corti a regonflé. Ça arrive, et ce n’est pas un échec. Si ça dure, parles-en à un adulte.'}
 function cardData(){var h=Object.keys(S.stick).filter(function(k){return S.stick[k]});return {a:h.length?h.join(' · '):'À choisir',b:S.k2||'À compléter',c:S.k3||'À compléter'}}
 function renderCard(){var el=document.getElementById('card');if(!el)return;var c=cardData();el.innerHTML='<svg class="c" viewBox="0 0 200 130" aria-hidden="true">'+crabMini(0,0,1)+'</svg><h3>Ma boîte à calme</h3><dl><div><dt>Quand ça monte</dt><dd>'+esc(c.a)+'</dd></div><div><dt>Ma phrase</dt><dd>'+esc(c.b)+'</dd></div><div><dt>Je peux parler à</dt><dd>'+esc(c.c)+'</dd></div></dl>'}
 var B={d:1,on:false,t:null,end:0},G={on:false,t:null};
 function stopAll(){B.on=false;clearTimeout(B.t);G.on=false;clearTimeout(G.t)}
-function breathe(i){if(!B.on)return;var b=document.getElementById('bubble'),x=document.getElementById('btxt');if(!b||!x){B.on=false;return}if(Date.now()>=B.end){B.on=false;b.style.transform='scale(.38)';x.textContent='Bravo !';document.getElementById('bstart').textContent='Lancer la bulle';return}b.style.transform=i?'scale(1)':'scale(.38)';x.textContent=i?'Inspire':'Souffle';B.t=setTimeout(function(){breathe(!i)},5000)}
+function breathe(i){if(!B.on)return;var b=document.getElementById('bubble'),x=document.getElementById('btxt');if(!b||!x){B.on=false;return}if(Date.now()>=B.end){B.on=false;b.style.transform='scale(.55)';x.textContent='Bravo !';document.getElementById('bstart').textContent='Lancer Corti';return}b.style.transform=i?'scale(1)':'scale(.55)';x.textContent=i?'Inspire':'Souffle';B.t=setTimeout(function(){breathe(!i)},5000)}
 var GS=[['Serre fort tes poings',5],['Relâche',7],['Monte tes épaules vers tes oreilles',5],['Relâche',7],['Plisse ton visage',5],['Relâche tout',7]];
 function guide(i){if(!G.on)return;var g=document.getElementById('guide');if(!g){G.on=false;return}if(i>=GS.length){G.on=false;g.textContent='Bravo ! Tu sens la différence ?';document.getElementById('gstart').textContent='Recommencer';return}g.textContent=GS[i][0]+'…';G.t=setTimeout(function(){guide(i+1)},GS[i][1]*1000)}
 function render(){stopAll();var id=(location.hash||'').slice(1);if(VIEWS[id]){app.innerHTML=VIEWS[id]();renderCard()}else home();window.scrollTo(0,0)}
@@ -354,7 +388,7 @@ document.addEventListener('click',function(ev){var t=ev.target.closest('button')
  if(d.stick){S.stick[d.stick]=!S.stick[d.stick];save();t.setAttribute('aria-pressed',S.stick[d.stick]?'true':'false');renderCard();return}
  if(d.dur){B.d=+d.dur;document.querySelectorAll('[data-dur]').forEach(function(b){b.setAttribute('aria-pressed',b===t?'true':'false')});return}
  if(t.hasAttribute('data-sense')){t.classList.toggle('on');return}
- if(t.id==='bstart'){if(B.on){B.on=false;clearTimeout(B.t);document.getElementById('bubble').style.transform='scale(.38)';document.getElementById('btxt').textContent='Prêt ?';t.textContent='Lancer la bulle';return}B.on=true;B.end=Date.now()+B.d*60000;t.textContent='Arrêter';breathe(true);return}
+ if(t.id==='bstart'){if(B.on){B.on=false;clearTimeout(B.t);document.getElementById('bubble').style.transform='scale(.55)';document.getElementById('btxt').textContent='Prêt ?';t.textContent='Lancer Corti';return}B.on=true;B.end=Date.now()+B.d*60000;t.textContent='Arrêter';breathe(true);return}
  if(t.id==='gstart'){clearTimeout(G.t);G.on=true;t.textContent='Recommencer';guide(0);return}
  if(t.id==='copy'){var c=cardData(),o=document.getElementById('copied'),f=function(){o.textContent='La copie ne marche pas ici. Sélectionne le texte à la main.'};try{navigator.clipboard.writeText('Ma boîte à calme\nQuand ça monte : '+c.a+'\nMa phrase : '+c.b+'\nJe peux parler à : '+c.c).then(function(){o.textContent='Carte copiée.'},f)}catch(e){f()}}
 });
